@@ -1,0 +1,20 @@
+pluginManagement {
+    repositories {
+        maven {
+            url 'https://artifactory.swisscom.com/coms-maven-local'
+            credentials {
+                username 'SA-PF100-r2aautomat'
+                password 'r2aPwd4Art!factory'
+            }
+        }
+
+        maven {
+            url 'https://artifactory.swisscom.com/r2a-lib-maven-virtual/'
+            credentials {
+                username 'SA-PF100-r2aautomat'
+                password 'r2aPwd4Art!factory'
+            }
+        }
+    }
+}
+rootProject.name = 'DemoBankService'

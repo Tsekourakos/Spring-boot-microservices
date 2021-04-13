@@ -1,0 +1,63 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.2.RELEASE' apply false
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE' apply false
+    id "com.github.spotbugs" version "4.5.0"
+    id 'java'
+    id 'pmd'
+//    id 'jacoco'
+    id 'de.aaschmid.cpd' version '3.1' apply false
+}
+
+group 'com.swisscom'
+version '1.0-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    maven {
+        url 'https://artifactory.swisscom.com/coms-maven-local'
+        credentials {
+            username 'SA-PF100-r2aautomat'
+            password 'r2aPwd4Art!factory'
+        }
+    }
+
+    maven {
+        url 'https://artifactory.swisscom.com/r2a-lib-maven-virtual/'
+        credentials {
+            username 'SA-PF100-r2aautomat'
+            password 'r2aPwd4Art!factory'
+        }
+    }
+}
+
+subprojects {
+
+    subproject ->
+        group = 'com.swisscom'
+
+        compileTestJava {
+            sourceCompatibility = '11'
+            targetCompatibility = '11'
+
+            options.encoding = 'UTF-8'
+
+        }
+
+        repositories {
+            maven {
+                url 'https://artifactory.swisscom.com/coms-maven-local'
+                credentials {
+                    username 'SA-PF100-r2aautomat'
+                    password 'r2aPwd4Art!factory'
+                }
+            }
+
+            maven {
+                url 'https://artifactory.swisscom.com/r2a-lib-maven-virtual/'
+                credentials {
+                    username 'SA-PF100-r2aautomat'
+                    password 'r2aPwd4Art!factory'
+                }
+            }
+        }
+}
